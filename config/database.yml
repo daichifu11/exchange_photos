@@ -49,7 +49,7 @@ test:
 #
 production:
   # <<: *default
-  database: exchange_photos_production
-  username: exchange_photos
-  password: <%= ENV['EXCHANGE_PHOTOS_DATABASE_PASSWORD'] %>
+  # database: exchange_photos_production
+  # username: exchange_photos
+  # password: <%= ENV['EXCHANGE_PHOTOS_DATABASE_PASSWORD'] %>
   adapter: postgresql
