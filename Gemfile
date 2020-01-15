@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -39,6 +39,8 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'omniauth-twitter'
 gem 'font-awesome-sass', '~> 5.4.1'
+gem 'carrierwave'
+gem 'fog'
 
 
 group :development, :test do
