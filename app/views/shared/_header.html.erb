@@ -9,8 +9,8 @@
       <div class="navbar-nav">
           <%= link_to '通知', '#', class: 'nav-item nav-link active' %>
           <%= link_to '写真を送る', '#', class: 'nav-item nav-link active' %>
-          <%= link_to '設定', '#', class: 'nav-item nav-link active' %>
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-item nav-link active' %>
+          <%= link_to '設定', edit_user_registration_path(current_user), class: 'nav-item nav-link active' %>
+          <%= link_to 'ログアウト', destroy_user_session_path, data: { confirm: "ログアウトしますか？" }, method: :delete, class: 'nav-item nav-link active' %>
       </div>
     </div>
   <% end %>
