@@ -8,6 +8,11 @@
         <%= f.label :email, 'メールアドレス' %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
       </div>
+
+      <div class="form-group">
+        <%= f.label :nick_name, "ニックネーム" %>
+        <%= f.text_field :nick_name, autofocus: true, class: "form-control" %>
+      </div>
     
       <div class="form-group">
         <%= f.label :password, 'パスワード' %>

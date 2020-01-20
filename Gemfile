@@ -41,6 +41,7 @@ gem 'omniauth-twitter'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'carrierwave'
 gem 'fog'
+gem 'ransack'
 
 
 group :development, :test do
