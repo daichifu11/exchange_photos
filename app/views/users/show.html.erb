@@ -1,11 +1,16 @@
-<span class= "text-center border pt-2 col-6 ">
+<span class= "text-center border pt-2 col-4 ">
   届いた写真
   <p class="text-center">0</p>
   <p class="text-center">件</p>
 </span>
-<span class= "text-center border pt-2 col-6">
+<span class= "text-center border pt-2 col-4">
   フォロー
-  <p class="text-center">0</p>
+  <p class="text-center" id="following"><%= link_to "#{current_user.following.count}", following_user_path(current_user), :style=>"color:black;" %></p>
+  <p class="text-center">件</p>
+</span>
+<span class= "text-center border pt-2 col-4">
+  フォロワー
+  <p class="text-center" id="followers"><%= link_to "#{current_user.followers.count}", followers_user_path(current_user), :style=>"color:black;" %></p>
   <p class="text-center">件</p>
 </span>
 <div class="col-12 text-center pt-5">
