@@ -1,0 +1,14 @@
+<h1><%= @user.nick_name %>さんのページ</h1>
+<p>写真を送信する</p>
+<%# ----------メッセージフォーム--------- %>
+<% if @is_room == true %>
+  <p class="btn btn-info m-3"><a href="/rooms/<%= @room_id %>">送る</a></p>
+<% else %>
+  <%= form_for @room do |f| %>
+    <%= fields_for @entry do |e| %>
+      <%= e.hidden_field :user_id, value: @user.id %>
+    <% end %>
+    <%= f.submit "送る", class: "btn btn-info m-3" %>
+  <% end %>
+<% end %>
+<%# ------------------------------------ %>

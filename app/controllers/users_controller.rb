@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
+
+  def other_user_show
     @user = User.find(params[:id])
     # ----------メッセージロジック----------
     @current_user_entry = Entry.where(user_id: current_user.id)

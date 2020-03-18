@@ -1,4 +1,4 @@
-<% if @user == current_user %>
+<% #if @user == current_user %>
   <span class= "text-center border pt-2 col-4 ">
     届いた写真
     <p class="text-center">0</p>
@@ -19,21 +19,6 @@
     <h5>さっそく友達と写真を交換しよう！</h5>
     <h5><%= link_to "友達をさがす", users_path %></h5>
   </div>
-<% else %>
-  <h1><%= @user.nick_name %>さんのページ</h1>
-  <p>写真を送信する</p>
-  <%# ----------メッセージフォーム--------- %>
-  <% if @is_room == true %>
-    <p class="btn btn-info m-3"><a href="/rooms/<%= @room_id %>">送る</a></p>
-  <% else %>
-    <%= form_for @room do |f| %>
-      <%= fields_for @entry do |e| %>
-        <%= e.hidden_field :user_id, value: @user.id %>
-      <% end %>
-      <%= f.submit "送る", class: "btn btn-info m-3" %>
-    <% end %>
-  <% end %>
-  <%# ------------------------------------ %>
-<% end %>
+<% #end %>
 
 

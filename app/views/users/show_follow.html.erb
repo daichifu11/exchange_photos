@@ -1,7 +1,7 @@
 <% @users.each do |users| %>
   <div class="d-inline-flex p-2 bd-highlight col-12 border">
     <p><%= image_tag users.avatar_image.thumb.url,:size =>'50x50' %></p>
-    <p class="pl-3 col-4 d-block"><%= link_to "#{users.nick_name.truncate(8)}", user_path(users.id), :style=>"color:black;" %></p>
+    <p class="pl-3 col-4 d-block"><%= link_to "#{users.nick_name.truncate(8)}", "/other_user_show/#{users.id}", :style=>"color:black;" %></p>
     <div class="d-flex flex-row justify-content-end">
       <% if current_user != users %> <!-- フォローフォーム開始 -->
         <div id="show_follow_form">
