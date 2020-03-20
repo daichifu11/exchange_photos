@@ -1,14 +1,16 @@
-<h1><%= @user.nick_name %>さんのページ</h1>
-<p>写真を送信する</p>
+<h1 class="text-center col-12 mt-5"><%= @user.nick_name %>さん</h1>
+<div class="col-12 text-center"><%= image_tag @user.avatar_image.to_s, :size => "200x200" %></div>
 <%# ----------メッセージフォーム--------- %>
 <% if @is_room == true %>
-  <p class="btn btn-info m-3"><a href="/rooms/<%= @room_id %>">送る</a></p>
+  <div class="btn btn-info m-3 mx-auto"><a href="/rooms/<%= @room_id %>">フォトルームへ</a></div>
 <% else %>
   <%= form_for @room do |f| %>
     <%= fields_for @entry do |e| %>
       <%= e.hidden_field :user_id, value: @user.id %>
     <% end %>
-    <%= f.submit "送る", class: "btn btn-info m-3" %>
+
+    <p class="text-center"><%= @user.nick_name %>さんとのフォトルームはまだありません。<br>フォトルームを作って写真を交換しよう！</p>
+    <%= f.submit "フォトルームをつくる", class: "btn btn-info m-3 mx-auto" %>
   <% end %>
 <% end %>
 <%# ------------------------------------ %>

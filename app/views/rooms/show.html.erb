@@ -1,22 +1,35 @@
 <%# ----------メッセージ画面----------%>
-<h1>dm</h1>
-<hr>
+<div class="w-100">
+  <h5 class="bg-secondary h-50 text-light bg-dark">
+    <%= current_user.nick_name %>さんと
+    <% @room.entries.each do |e| %>
+      <% unless e.user == current_user %>
+        <%= e.user.nick_name %>さんのフォトルーム
+      <% end %>
+    <% end %>
+  </h5>
+  <hr>
+</div>
+
 <% if @messages.present? %>
   <% @messages.each do |m| %>
-    <%= image_tag m.image.to_s, size: '250x250' %>
-    <small>by <strong><%= m.user.email %>さん</strong></small>
+    <% if m.user.id == current_user.id %>
+      <div class="col-12 text-right"><%= image_tag m.image.to_s, size: '250x250' %></div>
+      <div class="ml-3 text-right w-100 mr-3"><p>from <strong><%= m.user.nick_name %></strong><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "ml-2" %></p></div>
+    <% else %>
+      <div class="col-12"><%= image_tag m.image.to_s, size: '250x250' %></div>
+      <div class="ml-3"><p><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "mr-2" %>form <strong><%= m.user.nick_name %></strong></p></div>
+    <% end %>
     <hr>
   <% end %>
 <% else %>
-  <h3 class="text-center">メッセージはまだありません</h3>
+  <h3 class="text-center">やりとりはまだありません</h3>
 <% end %>
 
 <%= form_for @message do |f| %>
   <%= f.file_field :image %>
   <%= f.hidden_field :room_id, :value => @room.id %>
   <br>
-  <%= f.submit "投稿する" %>
+  <%= f.submit "送信する" %>
 <% end %>
-
-<%= link_to "ユーザー一覧に戻る", users_path %>
 <%# ------------------------------ %>

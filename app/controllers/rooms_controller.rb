@@ -1,6 +1,11 @@
 class RoomsController < ApplicationController
+  
+  def index
+    @entries = Entry.where(user_id: current_user.id)
+  end
 # ----------メッセージロジック----------
   def create
+    # @user = User.find(params[:id]) 要らないかも
     @room = Room.create
     @entry1 = Entry.create(room_id: @room.id, user_id: current_user.id)
     @entry2 = Entry.create(params.require(:entry).permit(:user_id, :room_id).merge(room_id: @room.id))

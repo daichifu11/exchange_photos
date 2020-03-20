@@ -1,0 +1,10 @@
+<% @entries.each do |e| %>
+  <% e.room.entries.each do |entry_user| %>
+    <% if entry_user.user.id != current_user.id%>
+      <div class="d-inline-flex p-2 bd-highlight col-12 border">
+        <p><%= image_tag entry_user.user.avatar_image.thumb.url,:size =>'50x50' %></p>
+        <p class="pl-3 col-10 d-block"><%= link_to "#{entry_user.user.nick_name}さんとのフォトルーム",  "/rooms/#{e.room.id}", :style=>"color:black;" %></p>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
