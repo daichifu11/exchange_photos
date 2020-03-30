@@ -7,10 +7,9 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships, only: [:create, :destroy]
-  resources :messages, only: :create
+  resources :messages, only: :create do
+    resources :comments, only: :create
+  end
   resources :rooms, only: [:create, :show, :index]
   get "/other_user_show/:id" => "users#other_user_show"
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
-

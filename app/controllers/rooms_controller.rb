@@ -14,6 +14,8 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    # @comments = @messages.comments 要らないかも
+    @comment = Comment.new
     if Entry.where(user_id: current_user.id, room_id: @room.id).present?
       @messages = @room.messages
       @message = Message.new
@@ -23,4 +25,10 @@ class RoomsController < ApplicationController
     end
   end
 # ------------------------------------
+
+  private
+  
+  def comment_params
+    params.require(:comment).permit(:image)
+  end
 end

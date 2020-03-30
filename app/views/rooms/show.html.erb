@@ -1,4 +1,3 @@
-<%# ----------メッセージ画面----------%>
 <div class="w-100">
   <h5 class="bg-secondary h-50 text-light bg-dark">
     <%= current_user.nick_name %>さんと
@@ -13,14 +12,54 @@
 
 <% if @messages.present? %>
   <% @messages.each do |m| %>
+    <%# メッセージを送信したのが自分 %>
     <% if m.user.id == current_user.id %>
-      <div class="col-12 text-right"><%= image_tag m.image.to_s, size: '250x250' %></div>
-      <div class="ml-3 text-right w-100 mr-3"><p>from <strong><%= m.user.nick_name %></strong><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "ml-2" %></p></div>
+      <%# メッセージに返信が無し %>
+      <% if m.comments.empty? %>
+        <div class="col-12 text-right"><%= image_tag m.image.to_s, size: '250x250' %></div>
+        <div class="ml-3 text-right w-100 mr-3"><small>返信がついていません</small><p><strong><%= m.user.nick_name %></strong><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "ml-2" %></p></div>
+        <span class="border-bottom col-12 mb-3"></span>
+      <%# メッセージに返信が有り %>
+      <% else %>
+        <div class="col-12 text-right"><%= image_tag m.image.to_s, size: '250x250' %></div>
+        <div class="ml-3 text-right w-100 mr-3"><p><strong><%= m.user.nick_name %></strong><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "ml-2" %></p></div>
+        <% m.comments.each do |c| %>
+          <div>
+            <%= image_tag c.image.to_s, size: "200x200" %>
+            <div class="ml-3"><p><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "mr-2" %><strong><%= m.user.nick_name %></strong></p></div>
+          </div>
+        <% end %>
+        <h5 class="text-center col-12">写真が交換されました！！</h5>
+        <span class="border-bottom col-12 mb-3"></span>
+      <% end %>
+    <%# メッセージを送信したのが他のユーザー %>
     <% else %>
-      <div class="col-12"><%= image_tag m.image.to_s, size: '250x250' %></div>
-      <div class="ml-3"><p><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "mr-2" %>form <strong><%= m.user.nick_name %></strong></p></div>
+      <%# メッセージに返信が無し%>
+      <% if m.comments.empty? %>
+        <div class="col-12"><%= image_tag "mosaic.png", size: '250x250' %></div>
+        <small class="col-12">写真が届きました！返信しましょう！</small>
+        <div class="ml-3"><p><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "mr-2" %><strong><%= m.user.nick_name %></strong></p></div>
+        <%= form_for [m, @comment] do |f| %>
+          <%= f.file_field :image %>
+          <%= f.hidden_field :message_id, :value => m.id %>
+          <br>
+          <%= f.submit "返信する" %>
+        <% end %>
+        <span class="border-bottom col-12 mb-3"></span>
+      <%# メッセージに返信が有り %>
+      <% else %>
+        <div class="col-12"><%= image_tag m.image.to_s, size: '250x250' %></div>
+        <div class="ml-3"><p><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "mr-2" %><strong><%= m.user.nick_name %></strong></p></div>
+        <% m.comments.each do |c| %>
+          <div class="col-12 text-right">
+            <%= image_tag c.image.to_s, size: "200x200" %>
+            <p><strong><%= c.user.nick_name %></strong><%= image_tag c.user.avatar_image.to_s, size: "30x30", class: "ml-2" %></p>
+          </div>
+        <% end %>
+        <h5 class="text-center col-12">写真が交換されました！！</h5>
+        <span class="border-bottom col-12 mb-3"></span>
+      <% end %>
     <% end %>
-    <hr>
   <% end %>
 <% else %>
   <h3 class="text-center">やりとりはまだありません</h3>
@@ -32,4 +71,3 @@
   <br>
   <%= f.submit "送信する" %>
 <% end %>
-<%# ------------------------------ %>
