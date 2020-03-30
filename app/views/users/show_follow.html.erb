@@ -7,7 +7,7 @@
         <div id="show_follow_form">
           <% if current_user.following?(users) %>
             <%= form_for(current_user.active_relationships.find_by(followed_id: users.id),
-            html: { method: :delete }, remote: true) do |f| %>
+              html: { method: :delete }, remote: true) do |f| %>
               <%= f.submit "フォロー中", class: "btn mt-3 ml-5" %>
             <% end %>
           <% else %>
@@ -19,5 +19,5 @@
         </div>
       <% end %>
     </div>
-  <% end %>
+  </div>
 <% end %>
