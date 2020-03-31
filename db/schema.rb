@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_001217) do
+ActiveRecord::Schema.define(version: 2020_03_30_234136) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -39,6 +39,21 @@ ActiveRecord::Schema.define(version: 2020_03_30_001217) do
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "message_id"
+    t.integer "comment_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_notifications_on_comment_id"
+    t.index ["message_id"], name: "index_notifications_on_message_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
