@@ -26,7 +26,7 @@
         <% m.comments.each do |c| %>
           <div>
             <%= image_tag c.image.to_s, size: "200x200" %>
-            <div class="ml-3"><p><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "mr-2" %><strong><%= m.user.nick_name %></strong></p></div>
+            <div class="ml-3"><p><%= image_tag c.user.avatar_image.to_s, size: "30x30", class: "mr-2" %><strong><%= c.user.nick_name %></strong></p></div>
           </div>
         <% end %>
         <h5 class="text-center col-12">写真が交換されました！！</h5>
