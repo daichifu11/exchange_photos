@@ -49,7 +49,7 @@
       <%# メッセージに返信が有り %>
       <% else %>
         <div class="col-12"><%= image_tag m.image.to_s, size: '250x250' %></div>
-        <div class="ml-3"><p><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "mr-2" %><strong><%= c.user.nick_name %></strong></p></div>
+        <div class="ml-3"><p><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "mr-2" %><strong><%= m.user.nick_name %></strong></p></div>
         <% m.comments.each do |c| %>
           <div class="col-12 text-right">
             <%= image_tag c.image.to_s, size: "200x200" %>
