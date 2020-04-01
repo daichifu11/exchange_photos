@@ -1,10 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-right">
   <% unless current_user %>
-    <span class="navbar-brand">サービス名</span>
+    <span class="navbar-brand">photoroom</span>
   <% else %>
+  <span class="navbar-brand"><%= link_to "photoroom", user_path(current_user), :style=>"color:black;" %></span>
   <span class="navbar-brand d-block text-truncate">
-    <%= image_tag current_user.avatar_image.thumb.url %>
-    <%= link_to "#{current_user.nick_name}", user_path(current_user), :style=>"color:black;" %>
   </span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

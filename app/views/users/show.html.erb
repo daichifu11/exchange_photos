@@ -1,3 +1,7 @@
+<div class="col-12">
+  <%= image_tag current_user.avatar_image.thumb.url, size: "50x50" %>
+  <%= link_to "#{current_user.nick_name}さんがログイン中", user_path(current_user), class: "ml-3", :style=>"color:black;" %>
+</div>
 <span class= "text-center border pt-2 col-4 ">
   届いた写真
   <p class="text-center">0</p>
@@ -13,3 +17,9 @@
   <p class="text-center" id="followers"><%= link_to "#{current_user.followers.count}", followers_user_path(current_user), :style=>"color:black;" %></p>
   <p class="text-center">件</p>
 </span>
+
+<div class="col-12 text-center pt-5">
+  <h5>まだ届いた写真がありません。</h5>
+  <h5>さっそく友達と写真を交換しよう！</h5>
+  <h5><%= link_to "友達をさがす", users_path %></h5>
+</div>
