@@ -45,7 +45,7 @@
             <button><%= f.file_field :image %></button>
             <%= f.hidden_field :message_id, :value => m.id %>
             <br>
-            <button class="btn btn-info "><%= f.submit "返信する", class: "text-white" %></button>
+            <%= f.submit "返信する", class: "btn btn-info text-white" %></button>
           <% end %>
         </div>
         <span class="border-bottom col-12 mb-3"></span>
@@ -73,6 +73,6 @@
     <button class="btn"><%= f.file_field :image %></button>
     <%= f.hidden_field :room_id, :value => @room.id %>
     <br>
-    <button class="btn btn-primary"><%= f.submit "送信する", class: "text-white" %></button>
+    <%= f.submit "送信する", class: "btn btn-primary text-white" %></button>
   </div>
 <% end %>
