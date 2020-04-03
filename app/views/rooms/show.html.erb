@@ -41,9 +41,8 @@
         <small class="col-12">写真が届きました！返信しましょう！</small>
         <div class="ml-3"><p><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "mr-2" %><strong><%= m.user.nick_name %></strong></p></div>
         <div class="m-3">
-        <br>
-        <%= form_for [m, @comment] do |f| %>
-            <%= f.file_field :image, class: "btn" %>
+          <%= form_for [m, @comment] do |f| %>
+            <%= f.file_field :image, class: "btn btn-light" %>
             <%= f.hidden_field :message_id, :value => m.id %>
             <br>
             <%= f.submit "返信する", class: "btn btn-info text-white" %></button>
@@ -71,7 +70,7 @@
 
 <div class="fixed-bottom col-12 bg-light py-3">
   <%= form_for @message do |f| %>
-    <%= f.file_field :image, class: "btn" %>
+    <%= f.file_field :image, class: "btn btn-light" %>
     <%= f.hidden_field :room_id, :value => @room.id %>
     <br>
     <%= f.submit "送信する", class: "btn btn-primary text-white" %></button>
