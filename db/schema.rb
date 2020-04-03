@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_234136) do
+ActiveRecord::Schema.define(version: 2020_04_01_093241) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_03_30_234136) do
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "visitor_id", null: false
     t.integer "visited_id", null: false
+    t.integer "room_id"
     t.integer "message_id"
     t.integer "comment_id"
     t.string "action", default: "", null: false

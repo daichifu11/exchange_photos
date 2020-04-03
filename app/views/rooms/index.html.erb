@@ -1,11 +1,13 @@
-<h5>フォトルーム</h5>
-<% @entries.each do |e| %>
-  <% e.room.entries.each do |ere| %>
-    <% if ere.user_id != current_user.id && e.room.messages.present? %>
-      <div class="d-inline-flex p-2 bd-highlight col-12 border">
-        <p><%= image_tag ere.user.avatar_image.thumb.url,:size =>'50x50' %></p>
-        <p class="pl-3 col-12 d-block"><%= link_to "#{ere.user.nick_name.truncate(8)}さんとのフォトルーム", room_path(e.room.id), :style=>"color:black;" %></p>
-      </div>
+<h5 class="text-center mt-3 col-12">フォトルーム</h5>
+<div>
+  <% @entries.each do |e| %>
+    <% e.room.entries.each do |ere| %>
+      <% if ere.user_id != current_user.id && e.room.messages.present? %>
+        <div class="d-inline-flex p-2 bd-highlight col-12 border">
+          <p><%= image_tag ere.user.avatar_image.thumb.url,:size =>'50x50' %></p>
+          <p class="pl-3 col-12 d-block"><%= link_to "#{ere.user.nick_name.truncate(8)}さんとのフォトルーム", room_path(e.room.id), :style=>"color:black;" %></p>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+</div>

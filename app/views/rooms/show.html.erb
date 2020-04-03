@@ -1,13 +1,14 @@
-<div class="w-100">
-  <h5 class="bg-secondary h-50 text-light bg-dark">
-    <%= current_user.nick_name %>さんと
-    <% @room.entries.each do |e| %>
-      <% unless e.user == current_user %>
-        <%= e.user.nick_name %>さんのフォトルーム
+<div class="w-100 mb-3 bg-light border">
+  <p class="h-30 text-center my-3">
+    <strong>
+      <%= current_user.nick_name %>さんと
+      <% @room.entries.each do |e| %>
+        <% unless e.user == current_user %>
+          <%= e.user.nick_name %>さんのフォトルーム
+        <% end %>
       <% end %>
-    <% end %>
-  </h5>
-  <hr>
+    </strong>
+  </p>
 </div>
 
 <% if @messages.present? %>
@@ -29,7 +30,7 @@
             <div class="ml-3"><p><%= image_tag c.user.avatar_image.to_s, size: "30x30", class: "mr-2" %><strong><%= c.user.nick_name %></strong></p></div>
           </div>
         <% end %>
-        <h5 class="text-center col-12">写真が交換されました！！</h5>
+        <%# <p class="text-center col-12 bg-success"><strong>写真が交換されました</strong></p> %>
         <span class="border-bottom col-12 mb-3"></span>
       <% end %>
     <%# メッセージを送信したのが他のユーザー %>
@@ -39,12 +40,14 @@
         <div class="col-12"><%= image_tag "mosaic.png", size: '250x250' %></div>
         <small class="col-12">写真が届きました！返信しましょう！</small>
         <div class="ml-3"><p><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "mr-2" %><strong><%= m.user.nick_name %></strong></p></div>
+        <div class="m-3">
         <%= form_for [m, @comment] do |f| %>
-          <%= f.file_field :image %>
-          <%= f.hidden_field :message_id, :value => m.id %>
-          <br>
-          <%= f.submit "返信する" %>
-        <% end %>
+            <button><%= f.file_field :image %></button>
+            <%= f.hidden_field :message_id, :value => m.id %>
+            <br>
+            <button class="btn btn-info "><%= f.submit "返信する", class: "text-white" %></button>
+          <% end %>
+        </div>
         <span class="border-bottom col-12 mb-3"></span>
       <%# メッセージに返信が有り %>
       <% else %>
@@ -56,7 +59,7 @@
             <p><strong><%= c.user.nick_name %></strong><%= image_tag c.user.avatar_image.to_s, size: "30x30", class: "ml-2" %></p>
           </div>
         <% end %>
-        <h5 class="text-center col-12">写真が交換されました！！</h5>
+        <%# <p class="text-center col-12 bg-success"><strong>写真が交換されました</strong></p> %>
         <span class="border-bottom col-12 mb-3"></span>
       <% end %>
     <% end %>
@@ -65,9 +68,11 @@
   <h3 class="text-center">やりとりはまだありません</h3>
 <% end %>
 
-<%= form_for @message do |f| %>
-  <%= f.file_field :image %>
-  <%= f.hidden_field :room_id, :value => @room.id %>
-  <br>
-  <%= f.submit "送信する" %>
+<div class="fixed-bottom col-12 bg-light py-3">
+  <%= form_for @message do |f| %>
+    <button class="btn"><%= f.file_field :image %></button>
+    <%= f.hidden_field :room_id, :value => @room.id %>
+    <br>
+    <button class="btn btn-primary"><%= f.submit "送信する", class: "text-white" %></button>
+  </div>
 <% end %>
