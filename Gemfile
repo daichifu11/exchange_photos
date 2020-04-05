@@ -42,7 +42,7 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem 'carrierwave'
 gem 'fog'
 gem 'ransack'
-gem "omniauth-rails_csrf_protection"
+# gem "omniauth-rails_csrf_protection"
 
 
 group :development, :test do
