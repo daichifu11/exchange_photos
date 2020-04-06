@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
   <% unless current_user %>
-    <span class="navbar-brand text-white">photoroom</span>
+    <span class="navbar-brand">photoroom</span>
   <% else %>
   <span class="navbar-brand"><%= link_to "photoroom", user_path(current_user), :style=>"color:black;" %></span>
   <span class="navbar-brand d-block text-truncate">

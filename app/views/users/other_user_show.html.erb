@@ -8,9 +8,10 @@
     <%= fields_for @entry do |e| %>
       <%= e.hidden_field :user_id, value: @user.id %>
     <% end %>
-
-    <p class="text-center"><%= @user.nick_name %>さんとのフォトルームはまだありません。<br>フォトルームを作って写真を交換しよう！</p>
-    <%= f.submit "フォトルームをつくる", class: "btn btn-info m-3 mx-auto" %>
+    <div>
+      <p class="text-center col-12 ml-3"><%= @user.nick_name %>さんとのフォトルームはまだありません。<br>フォトルームを作って写真を交換しよう！</p>
+      <p class="col-12 text-center"><%= f.submit "フォトルームをつくる", class: "btn btn-info" %></p>
+    </div>
   <% end %>
 <% end %>
 <%# ------------------------------------ %>
