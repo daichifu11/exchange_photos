@@ -2,17 +2,17 @@
   <%= image_tag current_user.avatar_image.thumb.url, size: "50x50" %>
   <%= link_to "#{current_user.nick_name}さんがログイン中", user_path(current_user), class: "ml-3", :style=>"color:black;" %>
 </div>
-<span class= "text-center border pt-2 col-4 ">
+<!-- <span class= "text-center border pt-2 col-4 ">
   届いた写真
   <p class="text-center">0</p>
   <p class="text-center">件</p>
-</span>
-<span class= "text-center border pt-2 col-4">
+</span> -->
+<span class= "text-center border pt-2 col-6">
   フォロー
   <p class="text-center" id="following"><%= link_to "#{current_user.following.count}", following_user_path(current_user), :style=>"color:black;" %></p>
   <p class="text-center">件</p>
 </span>
-<span class= "text-center border pt-2 col-4">
+<span class= "text-center border pt-2 col-6">
   フォロワー
   <p class="text-center" id="followers"><%= link_to "#{current_user.followers.count}", followers_user_path(current_user), :style=>"color:black;" %></p>
   <p class="text-center">件</p>
