@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @message = @comment.message
     if @comment.save
-      @message.create_notification_comment!(current_user, @comment.id)
+      @message.create_notification_comment!(current_user, @comment.id, @comment.message.room.id)
       redirect_back(fallback_location: users_path)
     else
       redirect_back(fallback_location: rooms_path)

@@ -36,7 +36,7 @@
   <% end %>
 <% end %>
 
-<h5 class="col-12 mt-3 text-center border border-secondary rounded-pill">返信で来た写真</h5>
+<h5 class="col-12 mt-3 text-center border border-secondary rounded-pill">返信で届いた写真</h5>
 <% current_user.entries.each do |e| %>
   <% e.room.messages.each do |m| %>
     <% m.comments.each do |c| %>

@@ -4,12 +4,20 @@
     <div class="d-inline-flex p-2 bd-highlight col-12 border">
       <% case notification.action %>
         <% when "comment" then %>
-          <% if notification.message.user_id == notification.visited_id %>
-            <p><%= image_tag notification.visitor.avatar_image.thumb.url,:size =>'50x50' %></p>
-            <p></p><%= link_to "#{notification.visitor.nick_name}さんから写真の返信がありました", 
-            notification.message.room, style: "font-weight: bold; color:black;" %>
+          <% if notification.visitor_id != notification.visited_id %>
+            <p><%= image_tag notification.visitor.avatar_image.thumb.url, size: "50x50" %></p>
+            <p><%= link_to "#{notification.visitor.nick_name}さんから写真の返信がありました", "/rooms/#{notification.room_id}", style: "font-weight: bold; color:black;" %></p>
+          <% end %>
+        <% when "message" then %>
+          <% if notification.visited_id != notification.visitor_id %>
+            <p><%= image_tag notification.visitor.avatar_image.thumb.url, size: "50x50" %></p>
+            <p><%= link_to "#{notification.visitor.nick_name}さんから写真が届きました", "/rooms/#{notification.room_id}", style: "font-weight: bold; color:black;" %></p>
           <% end %>
       <% end %>
+      <div class="small text-muted mt-3 col-4">
+        <%= time_ago_in_words(notification.created_at) %>
+      </div>
     </div>
   <% end %>
 </div>
+
