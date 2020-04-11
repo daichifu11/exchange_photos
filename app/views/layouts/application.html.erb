@@ -5,6 +5,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- スマホでちゃんとレスポンシブ対応させるやつ -->
+    <meta name="twitter:card" content="summary_large_image" /> 
+    <meta name="twitter:site" content="@daichifu_11" /> <!--②-->
+    <meta property="og:url" content="https://photoroom.work" /> <!--③-->
+    <meta property="og:title" content="写真交換サービス photoroom" /> <!--④-->
+    <meta property="og:description" content="インスタには投稿しないけど、なんか見てほしい写真を送り合おう！" /> <!--⑤-->
+    <meta property="og:image" content="https://photoroom.work/app/assets/images/tutorial3.png" /> <!--⑥-->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
