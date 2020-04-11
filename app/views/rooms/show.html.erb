@@ -17,16 +17,16 @@
     <% if m.user.id == current_user.id %>
       <%# メッセージに返信が無し %>
       <% if m.comments.empty? %>
-        <div class="col-12 text-right"><%= image_tag m.image.to_s, size: '250x250' %></div>
+        <div class="col-12 text-right"><%= image_tag m.image.to_s, width: "200", height: "auto" %></div>
         <div class="ml-3 text-right w-100 mr-3"><small>返信がついていません</small><p><strong><%= m.user.nick_name %></strong><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "ml-2" %></p></div>
         <span class="border-bottom col-12 mb-3"></span>
       <%# メッセージに返信が有り %>
       <% else %>
-        <div class="col-12 text-right"><%= image_tag m.image.to_s, size: '250x250' %></div>
+        <div class="col-12 text-right"><%= image_tag m.image.to_s, width: "200", height: "auto" %></div>
         <div class="ml-3 text-right w-100 mr-3"><p><strong><%= m.user.nick_name %></strong><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "ml-2" %></p></div>
         <% m.comments.each do |c| %>
           <div>
-            <%= image_tag c.image.to_s, size: "200x200" %>
+            <%= image_tag c.image.to_s, width: "200", height: "auto" %>
             <div class="ml-3"><p><%= image_tag c.user.avatar_image.to_s, size: "30x30", class: "mr-2" %><strong><%= c.user.nick_name %></strong></p></div>
           </div>
         <% end %>
@@ -37,7 +37,7 @@
     <% else %>
       <%# メッセージに返信が無し%>
       <% if m.comments.empty? %>
-        <div class="col-12"><%= image_tag "mosaic.png", size: '250x250' %></div>
+        <div class="col-12"><%= image_tag "mosaic.png", width: "200", height: "auto" %></div>
         <small class="col-12">写真が届きました！返信しましょう！</small>
         <div class="ml-3"><p><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "mr-2" %><strong><%= m.user.nick_name %></strong></p></div>
         <div class="m-3">
@@ -51,11 +51,11 @@
         <span class="border-bottom col-12 mb-3"></span>
       <%# メッセージに返信が有り %>
       <% else %>
-        <div class="col-12"><%= image_tag m.image.to_s, size: '250x250' %></div>
+        <div class="col-12"><%= image_tag m.image.to_s, width: "200", height: "auto" %></div>
         <div class="ml-3"><p><%= image_tag m.user.avatar_image.to_s, size: "30x30", class: "mr-2" %><strong><%= m.user.nick_name %></strong></p></div>
         <% m.comments.each do |c| %>
           <div class="col-12 text-right">
-            <%= image_tag c.image.to_s, size: "200x200" %>
+            <%= image_tag c.image.to_s, width: "200", height: "auto" %>
             <p><strong><%= c.user.nick_name %></strong><%= image_tag c.user.avatar_image.to_s, size: "30x30", class: "ml-2" %></p>
           </div>
         <% end %>
