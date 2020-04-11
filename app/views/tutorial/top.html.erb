@@ -6,14 +6,15 @@
 
 <div class="col-12">
   <p class="mt-5"><strong>友達から写真が届きます。<br><br>まだ写真を見ることはできません。</strong></p>
-  <p class="text-center"><%= image_tag "tutorial1.png", size: "250x500"%></p>
+  <p class="text-center"><%= image_tag "tutorial1.png", width: "auto", height: "500"%></p>
   <p class="mt-5"><strong>自分も写真で返信をすることで、<br><br>送られてきた写真を見ることができます。</strong></p>
-  <p class="text-center"><%= image_tag "tutorial2.png", size: "250x500" %></p>
+  <p class="text-center"><%= image_tag "tutorial2.png", width: "auto", height: "500" %></p>
   <p class="mt-5"><strong>届いた写真や返信で来た写真は自分のページに表示されます。</strong></p>
-  <p class="text-center"><%= image_tag "tutorial3.png", size: "250x500" %></p>
+  <p class="text-center"><%= image_tag "tutorial3.png", width: "auto", height: "500" %></p>
 </div>
 
 <div class="col-12 text-center pt-5 mt-5">
-  <strong class="border border-primary rounded-pill col-6 lead"><%= link_to "photoroomをはじめる", new_user_registration_path %></strong>
-  <p class="pt-2"><%= link_to "既に登録している方はこちら", new_user_session_path %></p>
+  <strong class="border border-white rounded-pill col-6 lead p-2" id="registration-btn"><%= link_to "photoroomをはじめる", new_user_registration_path, class: "mx-2", :style => "color: white;" %></strong>
+  <p class="pt-3"><%= link_to "既に登録している方はこちら", new_user_session_path %></p>
 </div>
+

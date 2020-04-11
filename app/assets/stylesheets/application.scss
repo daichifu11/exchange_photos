@@ -10,17 +10,20 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+*= require_self
+*= require_tree .
  */
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-.user-box {
-  padding: 30px;
-  border: 1px solid #dcdcdc;
-  background-color: #f8f8ff;
-  border-radius: 30px
-}
+
+// .user-box {
+//   padding: 30px;
+//   border: 1px solid #dcdcdc;
+//   background-color: #f8f8ff;
+//   border-radius: 30px
+// }
 
 // フォント変更CSS
 // @font-face {
