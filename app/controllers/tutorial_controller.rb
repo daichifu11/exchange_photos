@@ -5,4 +5,10 @@ class TutorialController < ApplicationController
       redirect_to current_user
     end
   end
+
+  def terms
+  end
+
+  def privacy
+  end
 end

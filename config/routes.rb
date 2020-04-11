@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'tutorial#top'
   get "/other_user_show/:id" => "users#other_user_show"
+  get "/terms" => "tutorial#terms"
+  get "/privacy" => "tutorial#privacy"
+
 
   devise_for :users, controllers: { :omniauth_callbacks => 'omniauth_callbacks' }
 
