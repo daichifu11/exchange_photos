@@ -2,7 +2,7 @@ class Message < ApplicationRecord
   mount_uploader :image, ImageUploader
   belongs_to :user
   belongs_to :room
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
   validates :image, presence: true
 
