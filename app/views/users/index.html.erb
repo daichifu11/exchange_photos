@@ -10,29 +10,51 @@
   </div>
 <% end %>
 
-<div>
-  <% if @check.present? %>
-    <% @result.each do |result| %>
-      <% if result.id != current_user.id %>      
-        <div class="d-inline-flex p-2 bd-highlight col-12 border">
-          <p><%= image_tag result.avatar_image.thumb.url,:size =>'50x50' %></p>
-          <p class="pl-3 col-4 d-block"><%= link_to "#{result.nick_name.truncate(8)}", "/other_user_show/#{result.id}", :style=>"color:black;" %></p>
-          <div class="d-flex flex-row justify-content-end">
-          <%# ----- フォローフォーム ----- %>
-          <% if current_user != result %>
-            <div id="follow_form">
-              <% if current_user.following?(result) %>
-                <%= render "unfollow", user: result %>
-              <% else %>
-                <%= render "follow", user: result %>
-              <% end %>
-            </div>
-          <% end %>
-          <%# -------------------------- %>
+
+<% if @check.present? %>
+  <% @result.each do |result| %>
+    <% if result.id != current_user.id %>      
+      <div class="d-inline-flex p-2 bd-highlight col-12 border">
+        <p><%= image_tag result.avatar_image.thumb.url,:size =>'50x50' %></p>
+        <p class="pl-3 col-4 d-block"><%= link_to "#{result.nick_name.truncate(8)}", "/other_user_show/#{result.id}", :style=>"color:black;" %></p>
+        <div class="d-flex flex-row justify-content-end">
+        <%# ----- フォローフォーム ----- %>
+        <% if current_user != result %>
+          <div id="follow_form">
+            <% if current_user.following?(result) %>
+              <%= render "unfollow", user: result %>
+            <% else %>
+              <%= render "follow", user: result %>
+            <% end %>
           </div>
+        <% end %>
+        <%# -------------------------- %>
         </div>
-      <% end %>
+      </div>
     <% end %>
   <% end %>
-</div>
+<% else %>
+  <% @users.each do |user| %>
+    <% if user.id != current_user.id %>      
+      <div class="d-inline-flex p-2 bd-highlight col-12 border">
+        <p><%= image_tag user.avatar_image.thumb.url,:size =>'50x50' %></p>
+        <p class="pl-3 col-4 d-block"><%= link_to "#{user.nick_name.truncate(8)}", "/other_user_show/#{user.id}", :style=>"color:black;" %></p>
+        <div class="d-flex flex-row justify-content-end">
+        <%# ----- フォローフォーム ----- %>
+        <% if current_user != user %>
+          <div id="follow_form">
+            <% if current_user.following?(user) %>
+              <%= render "unfollow", user: user %>
+            <% else %>
+              <%= render "follow", user: user %>
+            <% end %>
+          </div>
+        <% end %>
+        <%# -------------------------- %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
 
