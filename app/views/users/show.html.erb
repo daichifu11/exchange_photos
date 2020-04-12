@@ -30,7 +30,9 @@
   <% e.room.messages.each do |m| %>
     <% if m.user_id != current_user.id && m.comments.present?  %>
     <p class="m-1">
-      <%= image_tag m.image.to_s, width: "110", height: "auto" %>
+      <%=  link_to m.image.to_s, 'data-lightbox': m.image do %>
+        <%= image_tag m.image.to_s, width: "110", height: "auto" %>
+      <% end %>
     </p>
     <% end %>
   <% end %>
@@ -42,7 +44,9 @@
     <% m.comments.each do |c| %>
       <% if m.user_id == current_user.id && m.comments.present? %>
       <p class="m-1">
+      <%=  link_to c.image.to_s, 'data-lightbox': c.image do %>
         <%= image_tag c.image.to_s, width: "110", height: "auto" %>
+      <% end %>
       </p>
       <% end %>
     <% end %>
