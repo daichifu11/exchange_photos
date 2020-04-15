@@ -32,3 +32,34 @@
 //   font-weight: normal;
 //   font-style: normal;
 // }
+
+.navbar-toggler {
+  width: 50px;
+}
+
+.navbar-toggler-icon {
+  position: relative;
+}
+
+.n-circle {
+  position: relative;
+  left: 15px;
+  bottom: 40px;
+  color: #efa04c;
+}
+
+.n-circle2 {
+  position: relative;
+  // right: 10px;
+  left: 12px;
+  bottom: 50px;
+  color: #efa04c;
+}
+
+.notification {
+  position: relative;
+  // right: 25px;
+  width: 50px;
+  bottom: 4px;
+  padding: 0;
+}

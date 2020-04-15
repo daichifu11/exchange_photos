@@ -6,12 +6,12 @@
         <% when "comment" then %>
           <% if notification.visitor_id != notification.visited_id %>
             <p><%= image_tag notification.visitor.avatar_image.thumb.url, size: "50x50" %></p>
-            <p><%= link_to "#{notification.visitor.nick_name}さんから写真の返信がありました", "/rooms/#{notification.room_id}", style: "font-weight: bold; color:black;" %></p>
+            <p class="ml-2"><%= link_to "#{notification.visitor.nick_name}さんから写真の返信がありました", "/rooms/#{notification.room_id}", style: "font-weight: bold; color:black;" %></p>
           <% end %>
         <% when "message" then %>
           <% if notification.visited_id != notification.visitor_id %>
             <p><%= image_tag notification.visitor.avatar_image.thumb.url, size: "50x50" %></p>
-            <p><%= link_to "#{notification.visitor.nick_name}さんから写真が届きました", "/rooms/#{notification.room_id}", style: "font-weight: bold; color:black;" %></p>
+            <p class="ml-2"><%= link_to "#{notification.visitor.nick_name}さんから写真が届きました", "/rooms/#{notification.room_id}", style: "font-weight: bold; color:black;" %></p>
           <% end %>
       <% end %>
       <div class="small text-muted mt-3 col-4">
