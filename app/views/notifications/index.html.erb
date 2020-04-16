@@ -1,5 +1,5 @@
 <h5 class="col-12 text-center mt-3">通知</h5>
-<div>
+<div class="bottom-width">
   <% @notifications.each do |notification| %>
     <div class="d-inline-flex p-2 bd-highlight col-12 border">
       <% case notification.action %>
@@ -20,4 +20,6 @@
     </div>
   <% end %>
 </div>
+
+<%= render "shared/menu" %>
 

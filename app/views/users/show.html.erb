@@ -2,11 +2,7 @@
   <%= image_tag current_user.avatar_image.thumb.url, size: "50x50" %>
   <%= link_to "#{current_user.nick_name}さんがログイン中", user_path(current_user), class: "ml-3", :style=>"color:black;" %>
 </div>
-<!-- <span class= "text-center border pt-2 col-4 ">
-  届いた写真
-  <p class="text-center">0</p>
-  <p class="text-center">件</p>
-</span> -->
+
 <span class= "text-center border pt-2 col-6">
   フォロー
   <p class="text-center" id="following"><%= link_to "#{current_user.following.count}", following_user_path(current_user), :style=>"color:black;" %></p>
@@ -19,10 +15,6 @@
 </span>
 
 
-  <!--<div class="col-12 text-center pt-5">
-    <h5>まだ届いた写真がありません。</h5>
-    <h5>さっそく友達と写真を交換しよう！</h5>
-  </div>-->
 <h5 class="text-center col-12 mt-3"><%= link_to "友達をさがす", users_path %></h5>
 
 <h5 class="col-12 mt-3 text-center border border-secondary rounded-pill">届いた写真</h5>
@@ -38,17 +30,22 @@
   <% end %>
 <% end %>
 
+
 <h5 class="col-12 mt-3 text-center border border-secondary rounded-pill">返信で届いた写真</h5>
-<% current_user.entries.each do |e| %>
-  <% e.room.messages.each do |m| %>
-    <% m.comments.each do |c| %>
-      <% if m.user_id == current_user.id && m.comments.present? %>
-      <p class="m-1">
-      <%=  link_to c.image.to_s, 'data-lightbox': c.image do %>
-        <%= image_tag c.image.to_s, width: "110", height: "auto" %>
-      <% end %>
-      </p>
+<div class="d-inline-block bottom-width">
+  <% current_user.entries.each do |e| %>
+    <% e.room.messages.each do |m| %>
+      <% m.comments.each do |c| %>
+        <% if m.user_id == current_user.id && m.comments.present? %>
+        <span class="m-1">
+          <%=  link_to c.image.to_s, 'data-lightbox': c.image do %>
+            <%= image_tag c.image.to_s, width: "110", height: "auto" %>
+          <% end %>
+        </span>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
-<% end %>
+</div>
+
+ <%= render "shared/menu" %>

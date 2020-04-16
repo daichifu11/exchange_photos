@@ -1,0 +1,33 @@
+<nav class="navbar navbar-light bg-light fixed-bottom d-lg-none menubar col-12 top-width">
+
+  <%= link_to(user_path(current_user)) do %>
+    <span class= "text-center pt-2 col-2" style="heith: 80px;">
+      <i class="fas fa-home" style="font-size: 1.5em;" ></i>
+    </span>
+  <% end %>
+
+  <%= link_to(rooms_path) do %>
+    <span class= "text-center pt-2 col-2" style="heith: 80px;">
+      <i class="fas fa-comment-dots" style="font-size: 1.5em;" ></i>
+    </span>
+  <% end %>
+
+  <%= link_to(users_path) do  %>
+    <span class= "text-center pt-2 col-2" style="heith: 80px;">
+      <i class="fas fa-search"></i>
+    </span>
+  <% end %>
+
+  <%= link_to(notifications_path) do  %>
+    <span class= "text-center pt-2 col-2" style="heith: 80px;">
+      <i class="fas fa-bell"></i>
+    </span>
+  <% end %>
+
+  <%= link_to(edit_user_registration_path(current_user)) do  %>
+    <span class= "text-center pt-2 col-2" style="heith: 80px;">
+      <i class="fas fa-cog"></i>
+    </span>
+  <% end %>
+  
+</nav>

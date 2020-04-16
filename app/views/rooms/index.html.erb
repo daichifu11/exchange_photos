@@ -1,5 +1,5 @@
 <h5 class="text-center mt-3 col-12">フォトルーム</h5>
-<div>
+<div class="bottom-width">
   <% @entries.each do |e| %>
     <% e.room.entries.each do |ere| %>
       <% if ere.user_id != current_user.id && e.room.messages.present? %>
@@ -11,3 +11,5 @@
     <% end %>
   <% end %>
 </div>
+
+<%= render "shared/menu" %>

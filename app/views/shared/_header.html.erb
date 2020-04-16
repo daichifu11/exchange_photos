@@ -4,7 +4,7 @@
   <% else %>
   <span class="navbar-brand"><%= link_to "photoroom", user_path(current_user), :style => "color: black;" %></span>
 
-
+<div class="d-none d-lg-block">
     <% if unchecked_notifications.any? %>
         <button class="navbar-toggler fa-stack" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon fa-stack-1x"></span>
@@ -35,3 +35,4 @@
     </div>
   <% end %>
 </nav>
+</div>

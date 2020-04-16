@@ -18,12 +18,12 @@
 @import 'font-awesome';
 
 
-// .user-box {
-//   padding: 30px;
-//   border: 1px solid #dcdcdc;
-//   background-color: #f8f8ff;
-//   border-radius: 30px
-// }
+.user-box {
+  padding: 30px;
+  border: 1px solid #dcdcdc;
+  background-color: #f8f8ff;
+  border-radius: 30px
+}
 
 // フォント変更CSS
 // @font-face {
@@ -50,7 +50,6 @@
 
 .n-circle2 {
   position: relative;
-  // right: 10px;
   left: 12px;
   bottom: 50px;
   color: #efa04c;
@@ -58,8 +57,21 @@
 
 .notification {
   position: relative;
-  // right: 25px;
   width: 50px;
   bottom: 4px;
   padding: 0;
+}
+
+.menubar {
+  height: 80px;
+  width: 300px;
+}
+
+.bottom-width {
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+}
+
+.top-width {
+  margin-top: 50px;
 }
