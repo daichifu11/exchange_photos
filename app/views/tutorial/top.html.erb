@@ -4,7 +4,7 @@
   <p>インスタグラムには投稿できないけど、あの人には見てほしい写真をおくろう。<br><br><br></p>
 </div>
 
-<div class="col-12">
+<div class="col-12 text-center">
   <p class="mt-5"><strong>友達から写真が届きます。<br><br>まだ写真を見ることはできません。</strong></p>
   <p class="text-center"><%= image_tag "tutorial1.png", width: "auto", height: "500"%></p>
   <p class="mt-5"><strong>自分も写真で返信をすることで、<br><br>送られてきた写真を見ることができます。</strong></p>
@@ -17,5 +17,11 @@
   <strong class="border border-white rounded-pill col-6 lead p-2" id="registration-btn"><%= link_to "photoroomをはじめる", new_user_registration_path, class: "mx-2", :style => "color: white;" %></strong>
   <p class="pt-3"><%= link_to "既に登録している方はこちら", new_user_session_path %></p>
 </div>
-<%= render "shared/footer" %>
 
+<footer class="mt-5 py-3 bg-light col-12 text-center d-lg-none">
+  <div class="text-center">© photoroom</div>
+  <div class="col-12 text-left">
+    <div><small><%= link_to "利用規約", "/terms", :style => "color: black;" %></div></small>
+    <div><small><%= link_to "プライバシーポリシー", "/privacy", :style => "color: black" %></div></small>
+  </div>
+</footer>
