@@ -19,9 +19,15 @@
   <% end %>
 
   <%= link_to(notifications_path) do  %>
-    <span class= "text-center pt-2 col-2" style="heith: 80px;">
-      <i class="fas fa-bell"></i>
-    </span>
+    <% if unchecked_notifications.any? %>
+      <span class="text-center pt-2 col-2" style="heith: 80px;">
+        <i class="fas fa-bell"></i>
+      </span>
+    <% else %>
+      <span class= "text-center pt-2 col-2" style="heith: 80px;">
+        <i class="fas fa-bell"></i>
+      </span>
+    <% end %>
   <% end %>
 
   <%= link_to(edit_user_registration_path(current_user)) do  %>
